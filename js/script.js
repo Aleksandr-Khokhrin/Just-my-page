@@ -129,14 +129,9 @@ $(document).ready(function () {
 
 // last Slider
 document.addEventListener('DOMContentLoaded', function () {
-    const mainDiv = document.getElementById('MainDIV');
-    mainDiv.style.backgroundImage = `url("../img/footer/1.jpg")`;
     const containers = document.querySelectorAll('.container');
 
     function changeBackground(container) {
-        // Устанавливаем изображение в качестве фона для MainDIV
-        mainDiv.style.backgroundImage = `url("${container.dataset.image}")`;
-
         // Устанавливаем текст "Learn more ->" для активного контейнера
         containers.forEach((c) => {
             c.querySelector('p').textContent = (c === container) ? 'Learn more ->' : '>';
@@ -145,6 +140,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     containers.forEach((container) => {
         container.addEventListener('click', function () {
+            // Удаляем текущий класс из MainDIV
+            document.getElementById('MainDIV').classList.remove(container.dataset.image);
+
+            // Добавляем новый класс
+            document.getElementById('MainDIV').classList.add(container.dataset.image);
+
+            // Запускаем функцию для изменения текста
             changeBackground(container);
         });
 
@@ -157,6 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
 
 
 
