@@ -40,8 +40,6 @@ document.querySelector('.menu-btn').addEventListener('click', () => {
 
 //Splide
 document.addEventListener('DOMContentLoaded', function () {
-    const mainDiv = document.getElementById('MainDIV');
-    mainDiv.style.backgroundImage = `url("../img/footer/1.jpg")`;
     var splide = new Splide('.splide', {
         type: 'fade',
         rewind: true,
@@ -130,9 +128,9 @@ $(document).ready(function () {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // last Slider
-const mainDiv = document.getElementById('MainDIV');
-mainDiv.style.backgroundImage = `url("../img/footer/1.jpg")`;
 document.addEventListener('DOMContentLoaded', function () {
+    const mainDiv = document.getElementById('MainDIV');
+    mainDiv.style.backgroundImage = `url("../img/footer/1.jpg")`;
     const containers = document.querySelectorAll('.container');
 
     function changeBackground(container) {
