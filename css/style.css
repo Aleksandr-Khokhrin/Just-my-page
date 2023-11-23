@@ -538,7 +538,6 @@
   display: flex;
   flex-wrap: wrap;
   min-height: 768px;
-  background-image: url('../img/footer/1.jpg');
 }
 
 .container {

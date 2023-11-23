@@ -128,8 +128,8 @@ $(document).ready(function () {
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 // last Slider
-// const mainDiv = document.getElementById('MainDIV');
-// mainDiv.style.backgroundImage = `url("../img/footer/1.jpg")`;
+const mainDiv = document.getElementById('MainDIV');
+mainDiv.style.backgroundImage = `url("../img/footer/1.jpg")`;
 document.addEventListener('DOMContentLoaded', function () {
     const containers = document.querySelectorAll('.container');
 
