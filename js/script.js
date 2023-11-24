@@ -130,18 +130,22 @@ $(document).ready(function () {
 // last Slider
 document.addEventListener('DOMContentLoaded', function () {
     const containers = document.querySelectorAll('.container');
-
+    
     function changeBackground(container) {
         // Устанавливаем текст "Learn more ->" для активного контейнера
         containers.forEach((c) => {
             c.querySelector('p').textContent = (c === container) ? 'Learn more ->' : '>';
         });
     }
-
+    
     containers.forEach((container) => {
         container.addEventListener('click', function () {
             // Удаляем текущий класс из MainDIV
-            document.getElementById('MainDIV').classList.remove(container.dataset.image);
+            document.getElementById('MainDIV').classList.remove('bg1');
+            document.getElementById('MainDIV').classList.remove('bg2');
+            document.getElementById('MainDIV').classList.remove('bg3');
+            document.getElementById('MainDIV').classList.remove('bg4');
+            document.getElementById('MainDIV').classList.remove('bg5');
 
             // Добавляем новый класс
             document.getElementById('MainDIV').classList.add(container.dataset.image);
