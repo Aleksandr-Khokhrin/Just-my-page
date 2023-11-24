@@ -38,6 +38,128 @@ document.querySelector('.menu-btn').addEventListener('click', () => {
 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
+//hoverMenu
+const categories = [
+    {
+        name: "About Us",
+    },
+    {
+        name: "Our Team",
+    },
+    {
+        name: "Services",
+        subcategories: [
+            "Services Grid",
+            "Single Service",
+        ]
+    },
+    {
+        name: "Cases",
+        subcategories: [
+            "Cases Grid",
+            "Single Case",
+        ]
+    },
+    {
+        name: "Events",
+        subcategories: [
+            "Events Grid",
+            "Single Event",
+        ]
+    },
+    {
+        name: "Contact Us",
+    },
+    {
+        name: "Make an Appointment",
+    },
+    {
+        name: "Meetings",
+        subcategories: [
+            "Meetings Grid",
+            "Single Meeting",
+        ]
+    },
+    {
+        name: "Cost Calculator",
+    },
+    {
+        name: "Pricing Plans",
+    },
+    {
+        name: "FAQ",
+    },
+];
+
+function showDropdown() {
+    const dropdown = $('#dropdown');
+    dropdown.empty();
+
+    categories.forEach(category => {
+        const categoryElement = $('<div class="category">');
+        const categoryLink = $(`<a><p>${category.name}</p></a>`);
+        const arrowElement = $('<p class="arrow">').text('>');
+        categoryElement.append(categoryLink);
+        
+        if (category.subcategories) {
+            categoryLink.append(arrowElement);
+            const subcategoryContainer = $('<div class="subcategory">');
+            category.subcategories.forEach(subcategory => {
+                const subcategoryElement = $('<a>').text(subcategory);
+                subcategoryContainer.append(subcategoryElement);
+            });
+            categoryElement.append(subcategoryContainer);
+
+            // Скрыть подкатегории при загрузке
+            subcategoryContainer.hide();
+
+            // Показать подкатегории при наведении
+            categoryLink.mouseenter(function () {
+                subcategoryContainer.show();
+            });
+
+            // Скрыть подкатегории при уходе курсора
+            categoryElement.mouseleave(function () {
+                subcategoryContainer.hide();
+            });
+        }
+
+        dropdown.append(categoryElement);
+    });
+
+    const homeElement = $('.category#home');
+    const position = homeElement.position();
+
+    // Позиционируем выпадающий список под элементом "home"
+    dropdown.css({
+        top: position.top + homeElement.outerHeight(),
+        left: position.left + homeElement.outerWidth(),
+    });
+
+    // Отображаем выпадающий список
+    dropdown.show();
+}
+
+// Функция для скрытия выпадающего списка
+function hideDropdown() {
+    $('#dropdown').hide();
+}
+
+// Обработчик события для скрытия выпадающего списка при клике вне него
+$(document).on('click', function(event) {
+    if (!$(event.target).closest('#dropdown').length && !$(event.target).closest('.category#home').length) {
+        hideDropdown();
+    }
+});
+
+// Обработчик события для показа выпадающего списка при наведении на home
+$('.category#home').mouseenter(showDropdown);
+
+
+//hoverMenu
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
 //Splide
 document.addEventListener('DOMContentLoaded', function () {
     var splide = new Splide('.splide', {
