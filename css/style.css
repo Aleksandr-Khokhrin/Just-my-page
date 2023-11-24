@@ -416,6 +416,7 @@
   display: flex;
   flex-wrap: wrap;
   min-height: 768px;
+  position: relative;
 }
 
 .bg1{
@@ -440,7 +441,7 @@
   justify-content: end;
   gap: 22px;
   flex: 1;
-  min-height: calc(33vw + 124px);
+  min-height: calc(24vw + 234px);
   min-width: 300px;
   height: 89%;
   cursor: pointer;
@@ -495,6 +496,23 @@
     255,
     0.8
   ); /* Полупрозрачный белый фон при активации (нажатии) */
+}
+
+.case{
+  position: absolute;
+  z-index: 5;
+  left: calc(22vw - 54px);
+  top: calc(4vw + 25px);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px; /* 137.5% */
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: text-shadow 0.5s;
+}
+.case:hover{
+  text-shadow: 0 0 0.5px #fff,0 0 1px #fff,0 0 1.5px #fff,0 0 2px #fff;
 }
 
 /* the five box */
